@@ -112,8 +112,6 @@ if __name__ == '__main__':
     wait_til_clickable(driver, eng_xpath)
     driver.find_element_by_xpath(eng_xpath).click()
 
-    # print driver.current_url
-
     apply_btn_xpath = '//*[@id="filter-apply"]'
     wait_til_clickable(driver, apply_btn_xpath)
     driver.find_element_by_xpath(apply_btn_xpath).click()
@@ -123,7 +121,6 @@ if __name__ == '__main__':
                                  ).click()
 
     # Add keyword - Verizon
-
     keyword = 'Verizon'
     keyword_xpath = '//*[@id="simple-query-keywords"]/div/div/div/input'
     kw_btn = driver.find_element_by_xpath(keyword_xpath)
@@ -132,12 +129,9 @@ if __name__ == '__main__':
                                  ).click()
 
     # Search & Analytics
-
     driver.find_element_by_xpath('//*[@id="submitQueryButton"]').click()
     driver.find_element_by_xpath('//*[@id="query-builder"]/div[2]/div/div/div[1]/div/div[2]/div[2]/ul/li[2]/a'
                                  ).click()
-
-    # print driver.current_url
 
     time.sleep(5)
     driver.execute_script('angular.reloadWithDebugInfo();')
@@ -150,7 +144,6 @@ if __name__ == '__main__':
     print driver.current_url
 
     # Load the whole page by scrolling down to the bottom
-
     scroll_pause_time = 5
     section_titles = [
         'Latest Activity',
@@ -170,7 +163,6 @@ if __name__ == '__main__':
         time.sleep(scroll_pause_time)
 
     # 1. Daily Mentions #
-
     check_results_dir()
     dm_data = \
         driver.execute_script("return angular.element('sys-widget-latest-activity').scope().data;"
@@ -215,7 +207,6 @@ if __name__ == '__main__':
     print '====================Problem 1 solved===================='
 
     # 2. Sentiment Score Data
-
     (sentiment, posPercent, neuPercent, negPercent) = ([], [], [], [])
     sentiment_data = \
         driver.execute_script("return angular.element('sys-widget-sentiment-overall').scope().data;"
@@ -266,7 +257,6 @@ if __name__ == '__main__':
     print '====================Problem 2 solved===================='
 
     # 3. Word Cloud Picture
-
     while not driver.find_elements_by_class_name('wordcloud-container'):
         time.sleep(1)
 
@@ -297,7 +287,6 @@ if __name__ == '__main__':
     print '====================Problem 3 solved===================='
 
     # 4. Latest Mentions
-
     soup = BeautifulSoup(driver.page_source.encode('utf8'),
                          'html.parser')
     all_mentions = soup.find_all('div', {'class': 'latestMention'})
