@@ -1,3 +1,5 @@
-Verizon-Crawler
+# Verizon-Crawler
 
-# Two methods to crawl the reveiws of one product on Verizon website
+**Two methods** to crawl the reveiws of one product on Verizon website
+`Using selenium (webdriver)
+`Using Verizon API
