@@ -23,7 +23,7 @@ from pprint import pprint
 
 def setup():
     driver = webdriver.Chrome(executable_path=r'chromedriver')
-    driver.set_window_size(1680, 1050)
+    # driver.set_window_size(1680, 1050)
     return driver
 
 
