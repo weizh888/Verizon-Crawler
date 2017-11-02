@@ -104,7 +104,7 @@ def crawl_reviews():
         'Rating': rating,
         }, columns=review_fields)
 
-    all_reviews.to_csv(r"results/quiz2_1_api.csv", index=False,
+    all_reviews.to_csv(r"results/reviews_api.csv", index=False,
                        encoding='utf-8')
 
 
